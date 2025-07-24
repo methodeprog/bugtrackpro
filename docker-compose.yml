@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  php:
+    build: .
+    container_name: php_bugproject
+    ports:
+      - "9300:80"  # Apache dans le conteneur écoute sur 80, exposé sur 9000
+    volumes:
+      - ./:/var/www/html
+      - ./php.ini:/usr/local/etc/php/conf.d/uploads.ini
+    working_dir: /var/www/html
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_bugproject
+    ports:
+      - "3500:3306"  # Interne 3306, exposé sur 3307
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: bugprojectdb
+      MYSQL_USER: bugproject
+      MYSQL_PASSWORD: bugproject
+    volumes:
+      - dbdata45:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin_bugproject
+    environment:
+      PMA_HOST: mysql  # ici on va faire un alias réseau correct
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "9301:80"
+    depends_on:
+      - mysql
+
+volumes:
+  dbdata45:  # Volume spécifique pour ce projet
+
+
