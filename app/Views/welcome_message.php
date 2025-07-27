@@ -1,331 +1,2186 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Welcome to CodeIgniter 4!</title>
-    <meta name="description" content="The small framework with powerful features">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/png" href="/favicon.ico">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Index - Passion Bootstrap Template</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
 
-    <!-- STYLES -->
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-    <style {csp-style-nonce}>
-        * {
-            transition: background-color 300ms ease, color 300ms ease;
-        }
-        *:focus {
-            background-color: rgba(221, 72, 20, .2);
-            outline: none;
-        }
-        html, body {
-            color: rgba(33, 37, 41, 1);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-            font-size: 16px;
-            margin: 0;
-            padding: 0;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
-        }
-        header {
-            background-color: rgba(247, 248, 249, 1);
-            padding: .4rem 0 0;
-        }
-        .menu {
-            padding: .4rem 2rem;
-        }
-        header ul {
-            border-bottom: 1px solid rgba(242, 242, 242, 1);
-            list-style-type: none;
-            margin: 0;
-            overflow: hidden;
-            padding: 0;
-            text-align: right;
-        }
-        header li {
-            display: inline-block;
-        }
-        header li a {
-            border-radius: 5px;
-            color: rgba(0, 0, 0, .5);
-            display: block;
-            height: 44px;
-            text-decoration: none;
-        }
-        header li.menu-item a {
-            border-radius: 5px;
-            margin: 5px 0;
-            height: 38px;
-            line-height: 36px;
-            padding: .4rem .65rem;
-            text-align: center;
-        }
-        header li.menu-item a:hover,
-        header li.menu-item a:focus {
-            background-color: rgba(221, 72, 20, .2);
-            color: rgba(221, 72, 20, 1);
-        }
-        header .logo {
-            float: left;
-            height: 44px;
-            padding: .4rem .5rem;
-        }
-        header .menu-toggle {
-            display: none;
-            float: right;
-            font-size: 2rem;
-            font-weight: bold;
-        }
-        header .menu-toggle button {
-            background-color: rgba(221, 72, 20, .6);
-            border: none;
-            border-radius: 3px;
-            color: rgba(255, 255, 255, 1);
-            cursor: pointer;
-            font: inherit;
-            font-size: 1.3rem;
-            height: 36px;
-            padding: 0;
-            margin: 11px 0;
-            overflow: visible;
-            width: 40px;
-        }
-        header .menu-toggle button:hover,
-        header .menu-toggle button:focus {
-            background-color: rgba(221, 72, 20, .8);
-            color: rgba(255, 255, 255, .8);
-        }
-        header .heroe {
-            margin: 0 auto;
-            max-width: 1100px;
-            padding: 1rem 1.75rem 1.75rem 1.75rem;
-        }
-        header .heroe h1 {
-            font-size: 2.5rem;
-            font-weight: 500;
-        }
-        header .heroe h2 {
-            font-size: 1.5rem;
-            font-weight: 300;
-        }
-        section {
-            margin: 0 auto;
-            max-width: 1100px;
-            padding: 2.5rem 1.75rem 3.5rem 1.75rem;
-        }
-        section h1 {
-            margin-bottom: 2.5rem;
-        }
-        section h2 {
-            font-size: 120%;
-            line-height: 2.5rem;
-            padding-top: 1.5rem;
-        }
-        section pre {
-            background-color: rgba(247, 248, 249, 1);
-            border: 1px solid rgba(242, 242, 242, 1);
-            display: block;
-            font-size: .9rem;
-            margin: 2rem 0;
-            padding: 1rem 1.5rem;
-            white-space: pre-wrap;
-            word-break: break-all;
-        }
-        section code {
-            display: block;
-        }
-        section a {
-            color: rgba(221, 72, 20, 1);
-        }
-        section svg {
-            margin-bottom: -5px;
-            margin-right: 5px;
-            width: 25px;
-        }
-        .further {
-            background-color: rgba(247, 248, 249, 1);
-            border-bottom: 1px solid rgba(242, 242, 242, 1);
-            border-top: 1px solid rgba(242, 242, 242, 1);
-        }
-        .further h2:first-of-type {
-            padding-top: 0;
-        }
-        .svg-stroke {
-            fill: none;
-            stroke: #000;
-            stroke-width: 32px;
-        }
-        footer {
-            background-color: rgba(221, 72, 20, .8);
-            text-align: center;
-        }
-        footer .environment {
-            color: rgba(255, 255, 255, 1);
-            padding: 2rem 1.75rem;
-        }
-        footer .copyrights {
-            background-color: rgba(62, 62, 62, 1);
-            color: rgba(200, 200, 200, 1);
-            padding: .25rem 1.75rem;
-        }
-        @media (max-width: 629px) {
-            header ul {
-                padding: 0;
-            }
-            header .menu-toggle {
-                padding: 0 1rem;
-            }
-            header .menu-item {
-                background-color: rgba(244, 245, 246, 1);
-                border-top: 1px solid rgba(242, 242, 242, 1);
-                margin: 0 15px;
-                width: calc(100% - 30px);
-            }
-            header .menu-toggle {
-                display: block;
-            }
-            header .hidden {
-                display: none;
-            }
-            header li.menu-item a {
-                background-color: rgba(221, 72, 20, .1);
-            }
-            header li.menu-item a:hover,
-            header li.menu-item a:focus {
-                background-color: rgba(221, 72, 20, .7);
-                color: rgba(255, 255, 255, .8);
-            }
-        }
-    </style>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Passion
+  * Template URL: https://bootstrapmade.com/passion-bootstrap-template/
+  * Updated: Jul 21 2025 with Bootstrap v5.3.7
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
-<body>
 
-<!-- HEADER: MENU + HEROE SECTION -->
-<header>
+<body class="index-page">
 
-    <div class="menu">
-        <ul>
-            <li class="logo">
-                <a href="https://codeigniter.com" target="_blank">
-                    <svg role="img" aria-label="Visit CodeIgniter.com official website!" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2100 500" height="44"><path fill="#dd4814" d="M148.2 411c-20.53-9.07-34.48-28.61-36.31-50.99 1.2-23.02 13.36-44.06 32.67-56.61-3.17 7.73-2.4 16.53 2 23.6 5.01 7 13.63 10.36 22.07 8.61 12.02-3.38 19.06-15.86 15.68-27.89-1.2-4.21-3.6-8.03-6.88-10.91-13.6-11.06-20.43-28.44-18-45.81 2.33-9.2 7.42-17.52 14.61-23.8-5.4 14.4 9.83 28.61 20.05 35.6 18.14 10.88 35.6 22.84 52.32 35.81 18.27 14.4 28.23 36.94 26.67 60-4.11 24.54-21.47 44.8-45.13 52.4 47.33-10.53 96.13-48.13 97.06-101.46-.93-42.67-26.4-80.96-65.33-98.4h-1.73c.86 2.09 1.28 4.34 1.2 6.61.13-1.47.13-2.93 0-4.4.21 1.73.21 3.47 0 5.2-2.96 12.13-15.2 19.6-27.36 16.64-4.86-1.2-9.2-3.93-12.32-7.87-15.6-20 0-42.76 2.61-64.76 1.6-28.13-11.25-55.02-34.05-71.46 11.41 19.02-3.79 44-14.84 58.21-11.07 14.21-27.07 24.8-40.11 37.2-14.05 13.07-26.93 27.44-38.49 42.8-24.99 30.53-34.8 70.8-26.67 109.4 11.15 37.2 42.07 65.15 80.2 72.4h.21l-.13-.12Zm324.56-159.8q0-17.92 6.16-35.56 6.44-17.92 18.48-31.92t29.68-22.68q17.64-8.96 40.04-8.96 26.6 0 45.36 12.04 19.04 12.04 28 31.36l-15.4 9.52q-4.76-9.8-11.76-16.52-6.72-6.72-14.56-10.92-7.84-4.2-16.24-5.88-8.4-1.96-16.52-1.96-17.92 0-31.64 7.28-13.72 7.28-23.24 19.04-9.24 11.76-14 26.6-4.76 14.56-4.76 29.68 0 16.52 5.6 31.64 5.88 15.12 15.68 26.88 10.08 11.48 23.52 18.48 13.72 6.72 29.68 6.72 8.4 0 17.08-1.96 8.96-2.24 17.08-6.72 8.4-4.76 15.4-11.48 7-7 11.76-16.8l16.24 8.4q-4.76 11.2-13.44 19.88-8.68 8.4-19.32 14.28-10.64 5.88-22.68 8.96-11.76 3.08-23.24 3.08-20.44 0-37.52-8.96-17.08-8.96-29.4-23.24-12.32-14.56-19.32-32.76-6.72-18.48-6.72-37.52Zm263.48 103.6q-15.96 0-29.12-5.88-13.16-6.16-22.96-16.52-9.52-10.36-14.84-24.08Q664 294.6 664 279.48q0-15.4 5.32-29.12 5.6-13.72 15.12-24.08 9.8-10.36 22.96-16.52t28.84-6.16q15.68 0 28.84 6.16 13.44 6.16 22.96 16.52 9.8 10.36 15.12 24.08 5.6 13.72 5.6 29.12 0 15.12-5.32 28.84t-15.12 24.08q-9.52 10.36-22.96 16.52-13.16 5.88-29.12 5.88Zm-52.92-75.04q0 12.32 4.2 22.96 4.2 10.36 11.2 18.48 7.28 7.84 16.8 12.32 9.8 4.48 20.72 4.48 10.92 0 20.44-4.48 9.8-4.76 17.08-12.6 7.28-8.12 11.48-18.76 4.2-10.64 4.2-22.96 0-12.04-4.2-22.68-4.2-10.92-11.48-18.76-7.28-8.12-17.08-12.6-9.52-4.76-20.44-4.76-10.92 0-20.44 4.76-9.52 4.48-16.8 12.6-7.28 8.12-11.48 19.04-4.2 10.64-4.2 22.96ZM900.6 354.8q-15.12 0-28-6.16-12.88-6.44-22.12-16.8t-14.56-23.8q-5.04-13.72-5.04-28.56 0-15.4 5.04-29.12 5.04-14 13.72-24.36 8.96-10.36 21-16.24 12.32-6.16 26.88-6.16 18.48 0 32.76 9.8 14.28 9.52 22.4 23.24V147.6h19.04v179.76q0 7.84 6.72 7.84V352q-4.2.84-6.72.84-6.72 0-11.76-4.2-5.04-4.48-5.04-10.64v-14.28Q946.24 338 931.4 346.4t-30.8 8.4Zm4.2-16.8q7 0 14.84-2.8 8.12-2.8 15.12-7.56 7-5.04 11.76-11.48 5.04-6.72 6.16-14.28V256.8q-2.8-7.56-8.12-14-5.32-6.72-12.32-11.76-6.72-5.04-14.56-7.84-7.84-2.8-15.4-2.8-11.76 0-21.28 5.04-9.52 5.04-16.52 13.44-6.72 8.12-10.36 18.76-3.64 10.64-3.64 21.84 0 11.76 4.2 22.4 4.2 10.64 11.48 18.76 7.28 7.84 17.08 12.6Q893.32 338 904.8 338Zm173.04 16.8q-15.96 0-29.4-5.88-13.16-6.16-22.96-16.52-9.8-10.64-15.4-24.36-5.32-13.72-5.32-29.4 0-15.4 5.32-28.84 5.6-13.72 15.12-23.8 9.8-10.36 23.24-16.24 13.44-6.16 29.12-6.16 15.96 0 29.12 6.16 13.44 5.88 22.96 16.24 9.52 10.36 14.84 23.8 5.32 13.44 5.32 28.56v4.48q0 2.24-.28 3.08h-124.88q.84 11.76 5.32 21.84 4.76 9.8 12.04 17.08 7.28 7.28 16.52 11.48 9.52 3.92 20.16 3.92 7 0 14-1.96t12.88-5.32q5.88-3.36 10.64-8.12 4.76-5.04 7.28-10.92l16.52 4.48q-3.36 8.12-9.52 14.84-6.16 6.44-14.28 11.48-8.12 4.76-17.92 7.56-9.8 2.52-20.44 2.52Zm-53.48-83.44h107.24q-.84-11.76-5.6-21.28-4.48-9.8-11.76-16.8-7-7-16.52-10.92-9.24-3.92-19.88-3.92-10.64 0-20.16 3.92t-16.8 10.92q-7 7-11.48 16.8-4.2 9.8-5.04 21.28Zm193.2 80.64h-38.64V153.2h38.64V352Zm93.52.84q-14.84 0-26.88-5.88t-21-15.96q-8.68-10.36-13.44-23.8-4.76-13.44-4.76-28.56 0-15.96 5.04-29.68 5.04-13.72 14-24.08 8.96-10.36 21.56-16.24 12.6-5.88 27.72-5.88 17.08 0 29.96 7.84 12.88 7.56 21.28 20.44v-25.76h32.76V345q0 16.24-6.16 29.12-6.16 12.88-17.08 21.84-10.64 8.96-25.76 13.72-14.84 4.76-32.48 4.76-24.08 0-40.6-7.84-16.24-8.12-28-22.68l20.44-19.88q8.4 10.36 21 16.24 12.88 5.88 27.16 5.88 8.68 0 16.52-2.24 8.12-2.52 14.28-7.56 6.16-5.04 9.52-12.88 3.64-7.84 3.64-18.48v-18.48q-7.28 12.6-20.44 19.6-13.16 6.72-28.28 6.72Zm12.6-29.96q6.16 0 11.76-1.96t10.36-5.32q4.76-3.36 8.4-7.84 3.64-4.48 5.6-9.52v-35q-5.04-12.88-15.96-20.72-10.64-7.84-22.4-7.84-8.68 0-15.68 3.92-7 3.64-12.04 10.08-5.04 6.16-7.84 14.28-2.52 8.12-2.52 16.8 0 8.96 3.08 16.8t8.4 13.72q5.6 5.88 12.88 9.24 7.28 3.36 15.96 3.36Zm243.88-62.44V352h-37.52v-82.32q0-17.64-6.16-25.76-6.16-8.12-17.08-8.12-5.6 0-11.48 2.24-5.88 2.24-11.2 6.44-5.04 3.92-9.24 9.52t-6.16 12.32V352h-37.52V205.28h33.88v27.16q8.12-14 23.52-21.84t34.72-7.84q13.72 0 22.4 5.04 8.68 5.04 13.44 13.16 4.76 8.12 6.44 18.48 1.96 10.36 1.96 21Zm70.28 91.56h-37.52V205.28h37.52V352Zm0-167.16h-37.52V147.6h37.52v37.24Zm114.24 129.92 7.56 29.68q-7.56 3.36-18.48 6.72-10.92 3.36-22.96 3.36-7.84 0-14.84-1.96-6.72-1.96-12.04-6.16-5.04-4.48-8.12-11.2-3.08-7-3.08-16.8v-84.28h-19.32v-28.84h19.32v-47.6h37.52v47.6h30.8v28.84h-30.8v71.68q0 7.84 3.92 11.2 4.2 3.08 10.08 3.08t11.48-1.96q5.6-1.96 8.96-3.36Zm91.56 40.04q-17.64 0-31.92-5.88-14.28-6.16-24.36-16.52t-15.68-24.08q-5.32-13.72-5.32-28.84 0-15.68 5.32-29.4 5.32-14 15.4-24.36 10.08-10.64 24.36-16.8 14.56-6.16 32.48-6.16 17.92 0 31.92 6.16 14.28 6.16 24.08 16.52 10.08 10.36 15.12 24.08 5.32 13.72 5.32 28.56 0 3.64-.28 7 0 3.36-.56 5.6h-113.4q.84 8.68 4.2 15.4 3.36 6.72 8.68 11.48 5.32 4.76 12.04 7.28 6.72 2.52 14 2.52 11.2 0 21-5.32 10.08-5.6 13.72-14.56l32.2 8.96q-8.12 16.8-26.04 27.72-17.64 10.64-42.28 10.64Zm-38.08-88.48h76.16q-1.4-16.52-12.32-26.32-10.64-10.08-26.04-10.08-7.56 0-14.28 2.8-6.44 2.52-11.48 7.28t-8.4 11.48q-3.08 6.72-3.64 14.84Zm225.12-62.72v34.16q-17.08.28-30.52 6.72-13.44 6.16-19.32 18.76V352h-37.52V205.28h34.44v31.36q3.92-7.56 9.24-13.44 5.32-6.16 11.48-10.64t12.32-6.72q6.44-2.52 12.32-2.52h4.48q1.68 0 3.08.28Z"/></svg>
+  <header id="header" class="header fixed-top">
+
+    <div class="topbar d-flex align-items-center dark-background">
+      <div class="container d-flex justify-content-center justify-content-md-between">
+        <div class="contact-info d-flex align-items-center">
+          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i>
+          <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
+        </div>
+        <div class="social-links d-none d-md-flex align-items-center">
+          <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </div><!-- End Top Bar -->
+
+    <div class="branding d-flex align-items-cente">
+
+      <div class="container position-relative d-flex align-items-center justify-content-between">
+        <a href="index.html" class="logo d-flex align-items-center">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <!-- <img src="assets/img/logo.webp" alt=""> -->
+          <h1 class="sitename">Passion</h1>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="#hero" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#team">Team</a></li>
+            <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul>
+                <li><a href="#">Dropdown 1</a></li>
+                <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                  <ul>
+                    <li><a href="#">Deep Dropdown 1</a></li>
+                    <li><a href="#">Deep Dropdown 2</a></li>
+                    <li><a href="#">Deep Dropdown 3</a></li>
+                    <li><a href="#">Deep Dropdown 4</a></li>
+                    <li><a href="#">Deep Dropdown 5</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Dropdown 2</a></li>
+                <li><a href="#">Dropdown 3</a></li>
+                <li><a href="#">Dropdown 4</a></li>
+              </ul>
+            </li>
+
+            <!-- Megamenu 2 -->
+            <li class="megamenu-2"><a href="#"><span>Megamenu</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+
+              <!-- Mobile Megamenu -->
+              <ul class="mobile-megamenu">
+
+                <li><a href="#">Product Analytics</a></li>
+                <li><a href="#">Customer Insights</a></li>
+                <li><a href="#">Market Research</a></li>
+
+                <li class="dropdown"><a href="#"><span>Enterprise Software</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                  <ul>
+                    <li><a href="#">CRM Solutions</a></li>
+                    <li><a href="#">ERP Systems</a></li>
+                    <li><a href="#">Workflow Automation</a></li>
+                    <li><a href="#">Document Management</a></li>
+                    <li><a href="#">Business Intelligence</a></li>
+                    <li><a href="#">Integration Platform</a></li>
+                  </ul>
+                </li>
+
+                <li class="dropdown"><a href="#"><span>Development Tools</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                  <ul>
+                    <li><a href="#">Code Editors</a></li>
+                    <li><a href="#">Version Control</a></li>
+                    <li><a href="#">Testing Frameworks</a></li>
+                    <li><a href="#">Deployment Tools</a></li>
+                    <li><a href="#">API Management</a></li>
+                    <li><a href="#">Performance Monitoring</a></li>
+                  </ul>
+                </li>
+
+                <li class="dropdown"><a href="#"><span>Creative Suite</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                  <ul>
+                    <li><a href="#">Design Software</a></li>
+                    <li><a href="#">Video Editing</a></li>
+                    <li><a href="#">Audio Production</a></li>
+                    <li><a href="#">Animation Tools</a></li>
+                    <li><a href="#">Photo Editing</a></li>
+                    <li><a href="#">3D Modeling</a></li>
+                  </ul>
+                </li>
+
+                <li class="dropdown"><a href="#"><span>Resources</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                  <ul>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Tutorials</a></li>
+                    <li><a href="#">Community</a></li>
+                    <li><a href="#">Blog Posts</a></li>
+                  </ul>
+                </li>
+
+              </ul><!-- End Mobile Megamenu -->
+
+              <!-- Desktop Megamenu -->
+              <div class="desktop-megamenu">
+
+                <div class="tab-navigation">
+                  <ul class="nav nav-tabs flex-column" id="2190-megamenu-tabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link active" id="2190-tab-1-tab" data-bs-toggle="tab" data-bs-target="#2190-tab-1" type="button" role="tab" aria-controls="2190-tab-1" aria-selected="true">
+                        <i class="bi bi-building-gear"></i>
+                        <span>Enterprise Software</span>
+                      </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="2190-tab-2-tab" data-bs-toggle="tab" data-bs-target="#2190-tab-2" type="button" role="tab" aria-controls="2190-tab-2" aria-selected="false">
+                        <i class="bi bi-code-slash"></i>
+                        <span>Development Tools</span>
+                      </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="2190-tab-3-tab" data-bs-toggle="tab" data-bs-target="#2190-tab-3" type="button" role="tab" aria-controls="2190-tab-3" aria-selected="false">
+                        <i class="bi bi-palette"></i>
+                        <span>Creative Suite</span>
+                      </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="2190-tab-4-tab" data-bs-toggle="tab" data-bs-target="#2190-tab-4" type="button" role="tab" aria-controls="2190-tab-4" aria-selected="false">
+                        <i class="bi bi-journal-text"></i>
+                        <span>Resources</span>
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="tab-content">
+
+                  <!-- Enterprise Software Tab -->
+                  <div class="tab-pane fade show active" id="2190-tab-1" role="tabpanel" aria-labelledby="2190-tab-1-tab">
+                    <div class="content-grid">
+                      <div class="product-section">
+                        <h4>Core Solutions</h4>
+                        <div class="product-list">
+                          <a href="#" class="product-link">
+                            <i class="bi bi-people"></i>
+                            <div>
+                              <span>CRM Solutions</span>
+                              <small>Manage customer relationships effectively</small>
+                            </div>
+                          </a>
+                          <a href="#" class="product-link">
+                            <i class="bi bi-diagram-3"></i>
+                            <div>
+                              <span>ERP Systems</span>
+                              <small>Integrate all business processes</small>
+                            </div>
+                          </a>
+                          <a href="#" class="product-link">
+                            <i class="bi bi-gear-wide"></i>
+                            <div>
+                              <span>Workflow Automation</span>
+                              <small>Streamline repetitive tasks</small>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+
+                      <div class="product-section">
+                        <h4>Data &amp; Analytics</h4>
+                        <div class="product-list">
+                          <a href="#" class="product-link">
+                            <i class="bi bi-file-earmark-text"></i>
+                            <div>
+                              <span>Document Management</span>
+                              <small>Organize and secure documents</small>
+                            </div>
+                          </a>
+                          <a href="#" class="product-link">
+                            <i class="bi bi-bar-chart"></i>
+                            <div>
+                              <span>Business Intelligence</span>
+                              <small>Make data-driven decisions</small>
+                            </div>
+                          </a>
+                          <a href="#" class="product-link">
+                            <i class="bi bi-share"></i>
+                            <div>
+                              <span>Integration Platform</span>
+                              <small>Connect all your systems</small>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="featured-banner">
+                      <div class="banner-content">
+                        <img src="assets/img/misc/misc-7.webp" alt="Enterprise Solutions" class="banner-image">
+                        <div class="banner-info">
+                          <h5>Enterprise Package</h5>
+                          <p>Comprehensive business management solution with advanced features and 24/7 support.</p>
+                          <a href="#" class="cta-btn">Get Started <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Development Tools Tab -->
+                  <div class="tab-pane fade" id="2190-tab-2" role="tabpanel" aria-labelledby="2190-tab-2-tab">
+                    <div class="content-grid">
+                      <div class="product-section">
+                        <h4>Code &amp; Build</h4>
+                        <div class="product-list">
+                          <a href="#" class="product-link">
+                            <i class="bi bi-code-square"></i>
+                            <div>
+                              <span>Code Editors</span>
+                              <small>Advanced development environment</small>
+                            </div>
+                          </a>
+                          <a href="#" class="product-link">
+                            <i class="bi bi-git"></i>
+                            <div>
+                              <span>Version Control</span>
+                              <small>Track changes and collaborate</small>
+                            </div>
+                          </a>
+                          <a href="#" class="product-link">
+                            <i class="bi bi-check2-square"></i>
+                            <div>
+                              <span>Testing Frameworks</span>
+                              <small>Ensure code quality</small>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+
+                      <div class="product-section">
+                        <h4>Deploy &amp; Monitor</h4>
+                        <div class="product-list">
+                          <a href="#" class="product-link">
+                            <i class="bi bi-cloud-upload"></i>
+                            <div>
+                              <span>Deployment Tools</span>
+                              <small>Seamless application deployment</small>
+                            </div>
+                          </a>
+                          <a href="#" class="product-link">
+                            <i class="bi bi-api"></i>
+                            <div>
+                              <span>API Management</span>
+                              <small>Design and manage APIs</small>
+                            </div>
+                          </a>
+                          <a href="#" class="product-link">
+                            <i class="bi bi-speedometer2"></i>
+                            <div>
+                              <span>Performance Monitoring</span>
+                              <small>Track application performance</small>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="featured-banner">
+                      <div class="banner-content">
+                        <img src="assets/img/misc/misc-12.webp" alt="Development Tools" class="banner-image">
+                        <div class="banner-info">
+                          <h5>Developer Suite</h5>
+                          <p>Complete toolkit for modern development teams with integrated CI/CD pipelines.</p>
+                          <a href="#" class="cta-btn">Explore Tools <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Creative Suite Tab -->
+                  <div class="tab-pane fade" id="2190-tab-3" role="tabpanel" aria-labelledby="2190-tab-3-tab">
+                    <div class="content-grid">
+                      <div class="product-section">
+                        <h4>Design &amp; Visual</h4>
+                        <div class="product-list">
+                          <a href="#" class="product-link">
+                            <i class="bi bi-brush"></i>
+                            <div>
+                              <span>Design Software</span>
+                              <small>Professional graphic design tools</small>
+                            </div>
+                          </a>
+                          <a href="#" class="product-link">
+                            <i class="bi bi-camera-video"></i>
+                            <div>
+                              <span>Video Editing</span>
+                              <small>Professional video production</small>
+                            </div>
+                          </a>
+                          <a href="#" class="product-link">
+                            <i class="bi bi-image"></i>
+                            <div>
+                              <span>Photo Editing</span>
+                              <small>Advanced image manipulation</small>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+
+                      <div class="product-section">
+                        <h4>Media Production</h4>
+                        <div class="product-list">
+                          <a href="#" class="product-link">
+                            <i class="bi bi-music-note"></i>
+                            <div>
+                              <span>Audio Production</span>
+                              <small>Professional audio editing</small>
+                            </div>
+                          </a>
+                          <a href="#" class="product-link">
+                            <i class="bi bi-play-circle"></i>
+                            <div>
+                              <span>Animation Tools</span>
+                              <small>Create stunning animations</small>
+                            </div>
+                          </a>
+                          <a href="#" class="product-link">
+                            <i class="bi bi-box"></i>
+                            <div>
+                              <span>3D Modeling</span>
+                              <small>Advanced 3D design software</small>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="featured-banner">
+                      <div class="banner-content">
+                        <img src="assets/img/misc/misc-5.webp" alt="Creative Suite" class="banner-image">
+                        <div class="banner-info">
+                          <h5>Creative Pro</h5>
+                          <p>Everything you need for creative projects, from concept to final production.</p>
+                          <a href="#" class="cta-btn">Start Creating <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Resources Tab -->
+                  <div class="tab-pane fade" id="2190-tab-4" role="tabpanel" aria-labelledby="2190-tab-4-tab">
+                    <div class="resources-layout">
+                      <div class="resource-categories">
+                        <div class="resource-category">
+                          <i class="bi bi-book"></i>
+                          <h5>Documentation</h5>
+                          <p>Comprehensive guides and API references for all our products and services.</p>
+                          <a href="#" class="resource-link">Browse Docs <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                        <div class="resource-category">
+                          <i class="bi bi-play-circle"></i>
+                          <h5>Video Tutorials</h5>
+                          <p>Step-by-step video guides to help you get the most out of our solutions.</p>
+                          <a href="#" class="resource-link">Watch Tutorials <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                        <div class="resource-category">
+                          <i class="bi bi-chat-square-dots"></i>
+                          <h5>Community Forum</h5>
+                          <p>Connect with other users, share tips, and get answers to your questions.</p>
+                          <a href="#" class="resource-link">Join Community <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                        <div class="resource-category">
+                          <i class="bi bi-newspaper"></i>
+                          <h5>Blog &amp; Articles</h5>
+                          <p>Latest insights, best practices, and industry trends from our experts.</p>
+                          <a href="#" class="resource-link">Read Blog <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div><!-- End Desktop Megamenu -->
+
+            </li><!-- End Megamenu 2 -->
+
+            <li><a href="#contact">Contact</a></li>
+
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+
+      <div class="hero-background">
+        <img src="assets/img/bg/bg-14.webp" alt="" data-aos-duration="1000">
+        <div class="overlay"></div>
+      </div>
+
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="hero-content">
+              <span class="hero-badge">Innovative Solutions</span>
+              <h1>Transform Your Business with Modern Technology</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud.</p>
+              <div class="hero-actions">
+                <a href="#services" class="btn-primary">Explore Services</a>
+                <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="btn-secondary glightbox">
+                  <i class="bi bi-play-circle"></i>
+                  <span>Watch Demo</span>
                 </a>
-            </li>
-            <li class="menu-toggle">
-                <button id="menuToggle">&#9776;</button>
-            </li>
-            <li class="menu-item hidden"><a href="#">Home</a></li>
-            <li class="menu-item hidden"><a href="https://codeigniter.com/user_guide/" target="_blank">Docs</a>
-            </li>
-            <li class="menu-item hidden"><a href="https://forum.codeigniter.com/" target="_blank">Community</a></li>
-            <li class="menu-item hidden"><a
-                    href="https://codeigniter.com/contribute" target="_blank">Contribute</a>
-            </li>
-        </ul>
+              </div>
+              <div class="hero-stats">
+                <div class="stat-item">
+                  <span class="stat-number">500+</span>
+                  <span class="stat-label">Projects Completed</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number">98%</span>
+                  <span class="stat-label">Client Satisfaction</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number">24/7</span>
+                  <span class="stat-label">Support Available</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="hero-visual">
+              <div class="row g-3">
+                <div class="col-6">
+                  <div class="feature-card">
+                    <i class="bi bi-shield-check"></i>
+                    <span>Secure &amp; Reliable</span>
+                  </div>
+                  <div class="feature-card">
+                    <i class="bi bi-people"></i>
+                    <span>Expert Team</span>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="feature-card">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>High Performance</span>
+                  </div>
+                  <div class="feature-card">
+                    <i class="bi bi-award"></i>
+                    <span>Award Winning</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <div class="container">
+
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="content">
+              <h2>Transforming Ideas Into Reality Since 2015</h2>
+              <p class="lead">We are a passionate team of innovators dedicated to creating exceptional digital experiences that drive meaningful results for businesses worldwide.</p>
+              <p>Our journey began with a simple vision: to bridge the gap between cutting-edge technology and human-centered design. Today, we've grown into a trusted partner for companies seeking to transform their digital presence and accelerate their growth.</p>
+              <p>Through collaborative partnerships and innovative solutions, we've helped hundreds of organizations achieve their goals while building lasting relationships founded on trust, transparency, and exceptional results.</p>
+
+              <div class="stats-container">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="stat-item">
+                      <div class="number">8+</div>
+                      <div class="label">Years Experience</div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="stat-item">
+                      <div class="number">450+</div>
+                      <div class="label">Projects Completed</div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="stat-item">
+                      <div class="number">25</div>
+                      <div class="label">Team Members</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cta-wrapper">
+                <a href="#portfolio" class="btn btn-primary">Discover Our Work</a>
+                <a href="#team" class="btn btn-outline">Meet Our Team</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="image-wrapper">
+              <img src="assets/img/about/about-square-8.webp" alt="About Us" class="img-fluid main-image">
+              <div class="floating-card">
+                <div class="card-content">
+                  <i class="bi bi-award"></i>
+                  <div class="text">
+                    <h5>Excellence Award</h5>
+                    <span>Digital Innovation 2023</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /About Section -->
+
+    <!-- Clients Section -->
+    <section id="clients" class="clients section">
+
+      <div>
+
+        <div class="clients-slider swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 6000,
+              "autoplay": {
+                "delay": 1,
+                "disableOnInteraction": false
+              },
+              "centeredSlides": true,
+              "slideToClickedSlide": true,
+              "slidesPerView": "auto",
+              "spaceBetween": 40,
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 2,
+                  "spaceBetween": 20
+                },
+                "640": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 20
+                },
+                "992": {
+                  "slidesPerView": 4,
+                  "spaceBetween": 30
+                },
+                "1200": {
+                  "slidesPerView": 6,
+                  "spaceBetween": 40
+                }
+              }
+            }
+          </script>
+
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="client-logo">
+                <img src="assets/img/clients/clients-1.webp" class="img-fluid" alt="">
+              </div>
+            </div><!-- End Client Item -->
+
+            <div class="swiper-slide">
+              <div class="client-logo">
+                <img src="assets/img/clients/clients-2.webp" class="img-fluid" alt="">
+              </div>
+            </div><!-- End Client Item -->
+
+            <div class="swiper-slide">
+              <div class="client-logo">
+                <img src="assets/img/clients/clients-3.webp" class="img-fluid" alt="">
+              </div>
+            </div><!-- End Client Item -->
+
+            <div class="swiper-slide">
+              <div class="client-logo">
+                <img src="assets/img/clients/clients-4.webp" class="img-fluid" alt="">
+              </div>
+            </div><!-- End Client Item -->
+
+            <div class="swiper-slide">
+              <div class="client-logo">
+                <img src="assets/img/clients/clients-5.webp" class="img-fluid" alt="">
+              </div>
+            </div><!-- End Client Item -->
+
+            <div class="swiper-slide">
+              <div class="client-logo">
+                <img src="assets/img/clients/clients-6.webp" class="img-fluid" alt="">
+              </div>
+            </div><!-- End Client Item -->
+
+            <div class="swiper-slide">
+              <div class="client-logo">
+                <img src="assets/img/clients/clients-1.webp" class="img-fluid" alt="">
+              </div>
+            </div><!-- End Client Item -->
+
+            <div class="swiper-slide">
+              <div class="client-logo">
+                <img src="assets/img/clients/clients-2.webp" class="img-fluid" alt="">
+              </div>
+            </div><!-- End Client Item -->
+
+            <div class="swiper-slide">
+              <div class="client-logo">
+                <img src="assets/img/clients/clients-3.webp" class="img-fluid" alt="">
+              </div>
+            </div><!-- End Client Item -->
+
+            <div class="swiper-slide">
+              <div class="client-logo">
+                <img src="assets/img/clients/clients-4.webp" class="img-fluid" alt="">
+              </div>
+            </div><!-- End Client Item -->
+
+            <div class="swiper-slide">
+              <div class="client-logo">
+                <img src="assets/img/clients/clients-5.webp" class="img-fluid" alt="">
+              </div>
+            </div><!-- End Client Item -->
+
+            <div class="swiper-slide">
+              <div class="client-logo">
+                <img src="assets/img/clients/clients-6.webp" class="img-fluid" alt="">
+              </div>
+            </div><!-- End Client Item -->
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Clients Section -->
+
+    <!-- Featured Services Section -->
+    <section id="featured-services" class="featured-services section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title">
+        <h2>Featured Services</h2>
+        <p>Featured Srvices</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="services-content" data-aos-duration="900">
+              <span class="subtitle">Professional Services</span>
+              <h2>Elevating Business Performance Through Strategic Solutions</h2>
+              <p data-aos-duration="800">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius risus sed pellentesque auctor. Phasellus gravida magna at tortor cursus, sit amet suscipit tortor malesuada.</p>
+              <div class="mt-4" data-aos-duration="1100">
+                <a href="#" class="btn-consultation"><span>Request a Consultation</span><i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="services-image">
+              <img src="assets/img/services/services-9.webp" alt="Business Services" class="img-fluid">
+              <div class="shape-circle"></div>
+              <div class="shape-accent"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-5" data-aos-duration="1000">
+          <div class="col-12">
+            <div class="services-slider swiper init-swiper">
+              <script type="application/json" class="swiper-config">
+                {
+                  "slidesPerView": 3,
+                  "spaceBetween": 20,
+                  "loop": true,
+                  "speed": 600,
+                  "autoplay": {
+                    "delay": 5000
+                  },
+                  "navigation": {
+                    "nextEl": ".swiper-nav-next",
+                    "prevEl": ".swiper-nav-prev"
+                  },
+                  "breakpoints": {
+                    "320": {
+                      "slidesPerView": 1
+                    },
+                    "768": {
+                      "slidesPerView": 2
+                    },
+                    "992": {
+                      "slidesPerView": 3
+                    }
+                  }
+                }
+              </script>
+              <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                  <div class="service-card">
+                    <div class="icon-box">
+                      <i class="bi bi-bar-chart-fill"></i>
+                    </div>
+                    <a href="#" class="arrow-link"><i class="bi bi-arrow-right"></i></a>
+                    <div class="content">
+                      <h4><a href="#">Financial Strategy Development</a></h4>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Cras vehicula magna eget lectus varius, at finibus massa condimentum.</p>
+                      <div class="service-number">01</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="swiper-slide">
+                  <div class="service-card">
+                    <div class="icon-box">
+                      <i class="bi bi-graph-up-arrow"></i>
+                    </div>
+                    <a href="#" class="arrow-link"><i class="bi bi-arrow-right"></i></a>
+                    <div class="content">
+                      <h4><a href="#">Market Expansion Advisory</a></h4>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Cras vehicula magna eget lectus varius, at finibus massa condimentum.</p>
+                      <div class="service-number">02</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="swiper-slide">
+                  <div class="service-card">
+                    <div class="icon-box">
+                      <i class="bi bi-shield-check"></i>
+                    </div>
+                    <a href="#" class="arrow-link"><i class="bi bi-arrow-right"></i></a>
+                    <div class="content">
+                      <h4><a href="#">Risk Management Solutions</a></h4>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Cras vehicula magna eget lectus varius, at finibus massa condimentum.</p>
+                      <div class="service-number">03</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="swiper-slide">
+                  <div class="service-card">
+                    <div class="icon-box">
+                      <i class="bi bi-lightbulb-fill"></i>
+                    </div>
+                    <a href="#" class="arrow-link"><i class="bi bi-arrow-right"></i></a>
+                    <div class="content">
+                      <h4><a href="#">Innovation &amp; Digital Transformation</a></h4>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Cras vehicula magna eget lectus varius, at finibus massa condimentum.</p>
+                      <div class="service-number">04</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="swiper-slide">
+                  <div class="service-card">
+                    <div class="icon-box">
+                      <i class="bi bi-people-fill"></i>
+                    </div>
+                    <a href="#" class="arrow-link"><i class="bi bi-arrow-right"></i></a>
+                    <div class="content">
+                      <h4><a href="#">Talent Management Strategy</a></h4>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Cras vehicula magna eget lectus varius, at finibus massa condimentum.</p>
+                      <div class="service-number">05</div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="swiper-navigation">
+              <button class="swiper-nav-prev"><i class="bi bi-chevron-left"></i></button>
+              <button class="swiper-nav-next"><i class="bi bi-chevron-right"></i></button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Featured Services Section -->
+
+    <!-- How We Work Section -->
+    <section id="how-we-work" class="how-we-work section">
+
+      <!-- Section Title -->
+      <div class="container section-title">
+        <h2>How We Work</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-icon">
+              <i class="bi bi-search"></i>
+            </div>
+            <div class="step-number">Step 1</div>
+            <h3>Research &amp; Planning</h3>
+            <p>Nulla facilisi morbi tempus iaculis urna id. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere.</p>
+            <div class="step-arrow">
+              <i class="bi bi-arrow-right"></i>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-icon">
+              <i class="bi bi-lightbulb"></i>
+            </div>
+            <div class="step-number">Step 2</div>
+            <h3>Creative Solutions</h3>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+            <div class="step-arrow">
+              <i class="bi bi-arrow-right"></i>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-icon">
+              <i class="bi bi-gear"></i>
+            </div>
+            <div class="step-number">Step 3</div>
+            <h3>Development</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+            <div class="step-arrow">
+              <i class="bi bi-arrow-right"></i>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-icon">
+              <i class="bi bi-rocket-takeoff"></i>
+            </div>
+            <div class="step-number">Step 4</div>
+            <h3>Launch &amp; Support</h3>
+            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /How We Work Section -->
+
+    <!-- Features Section -->
+    <section id="features" class="features section">
+
+      <div class="container">
+
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <ul class="nav nav-tabs flex-column" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#features-tab-1" role="tab">
+                  <div class="d-flex align-items-center">
+                    <div class="icon-box">
+                      <i class="bi bi-people"></i>
+                    </div>
+                    <div class="ms-3">
+                      <h4>Vestibulum ante ipsum</h4>
+                      <p>Proin iaculis purus consequat</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-2" role="tab">
+                  <div class="d-flex align-items-center">
+                    <div class="icon-box">
+                      <i class="bi bi-heart"></i>
+                    </div>
+                    <div class="ms-3">
+                      <h4>Curabitur aliquet quam</h4>
+                      <p>Nulla quis lorem ut libero</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-3" role="tab">
+                  <div class="d-flex align-items-center">
+                    <div class="icon-box">
+                      <i class="bi bi-house-heart"></i>
+                    </div>
+                    <div class="ms-3">
+                      <h4>Luna stride flared</h4>
+                      <p>Sed ut perspiciatis unde omnis</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-4" role="tab">
+                  <div class="d-flex align-items-center">
+                    <div class="icon-box">
+                      <i class="bi bi-person-heart"></i>
+                    </div>
+                    <div class="ms-3">
+                      <h4>Quisque Velit Nisi</h4>
+                      <p>Duis aute irure dolor in</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-5" role="tab">
+                  <div class="d-flex align-items-center">
+                    <div class="icon-box">
+                      <i class="bi bi-briefcase"></i>
+                    </div>
+                    <div class="ms-3">
+                      <h4>Curabitur Aliquet</h4>
+                      <p>Excepteur sint occaecat cupidatat</p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-8">
+            <div class="tab-content">
+              <div class="tab-pane fade active show" id="features-tab-1" role="tabpanel">
+                <div class="content-box">
+                  <div class="row g-4">
+                    <div class="col-lg-6">
+                      <h3>Nullam Lacinia Consectetur</h3>
+                      <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec velit
+                        neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</p>
+                      <p class="highlight">Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam
+                        sit amet quam vehicula elementum sed sit amet dui.</p>
+                      <ul class="features-list">
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>Curabitur aliquet quam id dui posuere blandit</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>Nulla quis lorem ut libero malesuada feugiat</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>Vestibulum ac diam sit amet quam vehicula</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>Donec rutrum congue leo eget malesuada</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="image-box">
+                        <img src="assets/img/misc/misc-square-6.webp" alt="" class="img-fluid" loading="lazy">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="features-tab-2" role="tabpanel">
+                <div class="content-box">
+                  <div class="row g-4">
+                    <div class="col-lg-6">
+                      <h3>Sed Porttitor Lectus Nibh</h3>
+                      <p>Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Proin eget tortor risus.
+                        Vestibulum ante ipsum primis in faucibus.</p>
+                      <p class="highlight">Nulla quis lorem ut libero malesuada feugiat. Nulla quis lorem ut libero
+                        malesuada feugiat.</p>
+                      <ul class="features-list">
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>Vivamus suscipit tortor eget felis porttitor</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>Curabitur aliquet quam id dui posuere</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>Nulla quis lorem ut libero malesuada</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>Vestibulum ac diam sit amet quam</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="image-box">
+                        <img src="assets/img/misc/misc-square-13.webp" alt="" class="img-fluid" loading="lazy">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="features-tab-3" role="tabpanel">
+                <div class="content-box">
+                  <div class="row g-4">
+                    <div class="col-lg-6">
+                      <h3>Praesent Sapien Massa</h3>
+                      <p>Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vestibulum ante ipsum primis in
+                        faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+                      <p class="highlight">Donec sollicitudin molestie malesuada. Vestibulum ac diam sit amet quam vehicula
+                        elementum sed sit amet dui.</p>
+                      <ul class="features-list">
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>Curabitur non nulla sit amet nisl</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>Vestibulum ac diam sit amet quam</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>Donec rutrum congue leo eget</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>Nulla quis lorem ut libero</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="image-box">
+                        <img src="assets/img/misc/misc-square-3.webp" alt="" class="img-fluid" loading="lazy">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="features-tab-4" role="tabpanel">
+                <div class="content-box">
+                  <div class="row g-4">
+                    <div class="col-lg-6">
+                      <h3>Curabitur Aliquet Quam</h3>
+                      <p>Donec sollicitudin molestie malesuada. Vestibulum ac diam sit amet quam vehicula elementum sed sit
+                        amet dui. Curabitur aliquet quam id dui posuere blandit.</p>
+                      <p class="highlight">Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Curabitur
+                        non nulla sit amet nisl tempus.</p>
+                      <ul class="features-list">
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>Nulla quis lorem ut libero malesuada</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>Curabitur aliquet quam id dui</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>Vestibulum ac diam sit amet</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>Donec rutrum congue leo</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="image-box">
+                        <img src="assets/img/misc/misc-square-5.webp" alt="" class="img-fluid" loading="lazy">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="features-tab-5" role="tabpanel">
+                <div class="content-box">
+                  <div class="row g-4">
+                    <div class="col-lg-6">
+                      <h3>Vestibulum Ante Ipsum</h3>
+                      <p>Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Quisque velit nisi, pretium ut
+                        lacinia in, elementum id enim.</p>
+                      <p class="highlight">Donec rutrum congue leo eget malesuada. Vestibulum ac diam sit amet quam vehicula
+                        elementum sed sit amet dui.</p>
+                      <ul class="features-list">
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>Vivamus suscipit tortor eget felis</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>Curabitur aliquet quam id dui</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>Nulla quis lorem ut libero</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check2-circle"></i>
+                          <span>Vestibulum ac diam sit amet</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="image-box">
+                        <img src="assets/img/misc/misc-square-3.webp" alt="" class="img-fluid" loading="lazy">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- /Features Section -->
+
+    <!-- Services Section -->
+    <section id="services" class="services section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title">
+        <h2>Services</h2>
+        <p>CHECK OUR SERVICES</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-6 col-md-6">
+            <div class="service-card featured">
+              <div class="service-icon">
+                <i class="bi bi-code-slash"></i>
+              </div>
+              <div class="service-content">
+                <h3><a href="service-details.html">Web Development</a></h3>
+                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec rutrum congue leo eget malesuada.</p>
+                <div class="service-meta">
+                  <span class="badge popular">Most Popular</span>
+                  <span class="price">Starting at $2,999</span>
+                </div>
+                <a href="service-details.html" class="btn-cta">
+                  <span>Get Started</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+              <div class="service-bg"></div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="bi bi-palette"></i>
+              </div>
+              <div class="service-content">
+                <h3><a href="service-details.html">UI/UX Design</a></h3>
+                <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar.</p>
+                <div class="service-meta">
+                  <span class="price">Starting at $1,899</span>
+                </div>
+                <a href="service-details.html" class="btn-cta">
+                  <span>Learn More</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+              <div class="service-bg"></div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card compact">
+              <div class="service-icon">
+                <i class="bi bi-graph-up-arrow"></i>
+              </div>
+              <div class="service-content">
+                <h3><a href="service-details.html">Digital Marketing</a></h3>
+                <p>Donec rutrum congue leo eget malesuada. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.</p>
+                <a href="service-details.html" class="btn-cta">
+                  <span>Explore</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+              <div class="service-bg"></div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card compact">
+              <div class="service-icon">
+                <i class="bi bi-shield-check"></i>
+              </div>
+              <div class="service-content">
+                <h3><a href="service-details.html">Security Solutions</a></h3>
+                <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar vel. Sed porttitor lectus nibh vestibulum ac diam sit.</p>
+                <a href="service-details.html" class="btn-cta">
+                  <span>Discover</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+              <div class="service-bg"></div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card compact">
+              <div class="service-icon">
+                <i class="bi bi-cloud-upload"></i>
+              </div>
+              <div class="service-content">
+                <h3><a href="service-details.html">Cloud Services</a></h3>
+                <p>Pellentesque in ipsum id orci porta dapibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices.</p>
+                <a href="service-details.html" class="btn-cta">
+                  <span>Get Quote</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+              <div class="service-bg"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="stats-highlight">
+          <div class="row">
+            <div class="col-lg-3 col-md-6">
+              <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Projects Completed</div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Client Satisfaction</div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Support Available</div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="stat-item">
+                <div class="stat-number">5+</div>
+                <div class="stat-label">Years Experience</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing section">
+
+      <!-- Section Title -->
+      <div class="container section-title">
+        <h2>Pricing</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4 justify-content-center">
+
+          <!-- Basic Plan -->
+          <div class="col-lg-4 col-md-6">
+            <div class="pricing-item">
+              <div class="pricing-icon">
+                <i class="bi bi-star"></i>
+              </div>
+              <h3>Standard</h3>
+              <div class="price">
+                <span class="currency">$</span>9<span class="period">/month</span>
+              </div>
+              <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor.</p>
+              <ul class="features-list">
+                <li>
+                  <i class="bi bi-check2"></i>
+                  Vestibulum ante ipsum primis
+                </li>
+                <li>
+                  <i class="bi bi-check2"></i>
+                  Fusce vulputate eleifend
+                </li>
+                <li>
+                  <i class="bi bi-check2"></i>
+                  Nullam ac tortor vitae
+                </li>
+              </ul>
+              <a href="#" class="btn-pricing">Buy Now</a>
+            </div>
+          </div><!-- End Basic Plan -->
+
+          <!-- Professional Plan -->
+          <div class="col-lg-4 col-md-6">
+            <div class="pricing-item featured">
+              <div class="pricing-badge">Recommended</div>
+              <div class="pricing-icon">
+                <i class="bi bi-stars"></i>
+              </div>
+              <h3>Professional</h3>
+              <div class="price">
+                <span class="currency">$</span>29<span class="period">/month</span>
+              </div>
+              <p class="description">Maecenas tempus tellus eget condimentum rhoncus semper.</p>
+              <ul class="features-list">
+                <li>
+                  <i class="bi bi-check2"></i>
+                  Donec quam felis ultricies
+                </li>
+                <li>
+                  <i class="bi bi-check2"></i>
+                  Aenean massa imperdiet
+                </li>
+                <li>
+                  <i class="bi bi-check2"></i>
+                  Cras dapibus vivamus
+                </li>
+              </ul>
+              <a href="#" class="btn-pricing">Buy Now</a>
+            </div>
+          </div><!-- End Professional Plan -->
+
+          <!-- Ultimate Plan -->
+          <div class="col-lg-4 col-md-6">
+            <div class="pricing-item">
+              <div class="pricing-icon">
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <h3>Ultimate</h3>
+              <div class="price">
+                <span class="currency">$</span>49<span class="period">/month</span>
+              </div>
+              <p class="description">Etiam rhoncus maecenas tempus tellus eget condimentum.</p>
+              <ul class="features-list">
+                <li>
+                  <i class="bi bi-check2"></i>
+                  Phasellus viverra nulla
+                </li>
+                <li>
+                  <i class="bi bi-check2"></i>
+                  Quisque rutrum aenean
+                </li>
+                <li>
+                  <i class="bi bi-check2"></i>
+                  Etiam ultricies nisi vel
+                </li>
+              </ul>
+              <a href="#" class="btn-pricing">Buy Now</a>
+            </div>
+          </div><!-- End Ultimate Plan -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Pricing Section -->
+
+    <!-- Faq Section -->
+    <section id="faq" class="faq section">
+
+      <!-- Section Title -->
+      <div class="container section-title">
+        <h2>Frequently Asked Questions</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+
+            <div class="faq-wrapper">
+
+              <div class="faq-item faq-active">
+                <div class="faq-header">
+                  <div class="faq-icon">
+                    <i class="bi bi-question-circle"></i>
+                  </div>
+                  <h4>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar?</h4>
+                  <div class="faq-toggle">
+                    <i class="bi bi-plus"></i>
+                    <i class="bi bi-dash"></i>
+                  </div>
+                </div>
+                <div class="faq-content">
+                  <div class="content-inner">
+                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
+                  </div>
+                </div>
+              </div><!-- End FAQ Item -->
+
+              <div class="faq-item">
+                <div class="faq-header">
+                  <div class="faq-icon">
+                    <i class="bi bi-question-circle"></i>
+                  </div>
+                  <h4>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem?</h4>
+                  <div class="faq-toggle">
+                    <i class="bi bi-plus"></i>
+                    <i class="bi bi-dash"></i>
+                  </div>
+                </div>
+                <div class="faq-content">
+                  <div class="content-inner">
+                    <p>Donec rutrum congue leo eget malesuada. Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Proin eget tortor risus. Curabitur aliquet quam id dui posuere blandit.</p>
+                  </div>
+                </div>
+              </div><!-- End FAQ Item -->
+
+              <div class="faq-item">
+                <div class="faq-header">
+                  <div class="faq-icon">
+                    <i class="bi bi-question-circle"></i>
+                  </div>
+                  <h4>Vestibulum ante ipsum primis in faucibus orci luctus?</h4>
+                  <div class="faq-toggle">
+                    <i class="bi bi-plus"></i>
+                    <i class="bi bi-dash"></i>
+                  </div>
+                </div>
+                <div class="faq-content">
+                  <div class="content-inner">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                  </div>
+                </div>
+              </div><!-- End FAQ Item -->
+
+              <div class="faq-item">
+                <div class="faq-header">
+                  <div class="faq-icon">
+                    <i class="bi bi-question-circle"></i>
+                  </div>
+                  <h4>Nulla facilisi morbi tempus iaculis urna id volutpat?</h4>
+                  <div class="faq-toggle">
+                    <i class="bi bi-plus"></i>
+                    <i class="bi bi-dash"></i>
+                  </div>
+                </div>
+                <div class="faq-content">
+                  <div class="content-inner">
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+                  </div>
+                </div>
+              </div><!-- End FAQ Item -->
+
+              <div class="faq-item">
+                <div class="faq-header">
+                  <div class="faq-icon">
+                    <i class="bi bi-question-circle"></i>
+                  </div>
+                  <h4>Praesent sapien massa, convallis a pellentesque nec?</h4>
+                  <div class="faq-toggle">
+                    <i class="bi bi-plus"></i>
+                    <i class="bi bi-dash"></i>
+                  </div>
+                </div>
+                <div class="faq-content">
+                  <div class="content-inner">
+                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint.</p>
+                  </div>
+                </div>
+              </div><!-- End FAQ Item -->
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Faq Section -->
+
+    <!-- Call To Action Section -->
+    <section id="call-to-action" class="call-to-action section light-background">
+
+      <div class="container">
+
+        <div class="cta-wrapper">
+          <div class="cta-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+          </div>
+
+          <div class="row g-0">
+            <div class="col-lg-7">
+              <div class="cta-content p-5">
+                <span class="badge-custom">Premium Offer</span>
+                <h2 class="mt-4 mb-4">Transform Your Experience With Our Solution</h2>
+                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+
+                <div class="row benefits-row mb-5">
+                  <div class="col-md-6">
+                    <div class="benefit-item">
+                      <div class="icon-box">
+                        <i class="bi bi-lightning-charge-fill"></i>
+                      </div>
+                      <div class="benefit-content">
+                        <h5>Quick Setup</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="benefit-item">
+                      <div class="icon-box">
+                        <i class="bi bi-shield-check"></i>
+                      </div>
+                      <div class="benefit-content">
+                        <h5>Full Security</h5>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="action-buttons">
+                  <a href="#" class="btn btn-primary">Start Now</a>
+                  <a href="#" class="btn btn-outline">Learn More</a>
+                  <div class="guarantee-badge">
+                    <i class="bi bi-patch-check-fill"></i>
+                    <span>30-Day Money Back</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-5">
+              <div class="cta-image-container">
+                <img src="assets/img/illustration/illustration-3.webp" alt="Illustration" class="img-fluid main-image">
+                <div class="floating-element element-1">
+                  <i class="bi bi-star-fill"></i>
+                  <span>4.9 Rating</span>
+                </div>
+                <div class="floating-element element-2">
+                  <i class="bi bi-people-fill"></i>
+                  <span>10k+ Users</span>
+                </div>
+                <div class="pattern-dots"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Call To Action Section -->
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section">
+
+      <div class="container">
+
+        <div class="swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 1,
+                  "spaceBetween": 40
+                },
+                "1200": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 1
+                }
+              }
+            }
+          </script>
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="assets/img/person/person-m-9.webp" class="testimonial-img" alt="">
+                <h3>Saul Goodman</h3>
+                <h4>Ceo &amp; Founder</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="assets/img/person/person-f-5.webp" class="testimonial-img" alt="">
+                <h3>Sara Wilsson</h3>
+                <h4>Designer</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="assets/img/person/person-f-12.webp" class="testimonial-img" alt="">
+                <h3>Jena Karlis</h3>
+                <h4>Store Owner</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="assets/img/person/person-m-12.webp" class="testimonial-img" alt="">
+                <h3>Matt Brandon</h3>
+                <h4>Freelancer</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <img src="assets/img/person/person-m-13.webp" class="testimonial-img" alt="">
+                <h3>John Larson</h3>
+                <h4>Entrepreneur</h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+    </section><!-- /Testimonials Section -->
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section">
+
+      <!-- Section Title -->
+      <div class="container section-title">
+        <h2>Portfolio</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+          <div class="row">
+            <div class="col-lg-12 d-flex justify-content-center mt-4">
+              <ul class="portfolio-filters isotope-filters">
+                <li data-filter="*" class="filter-active">All</li>
+                <li data-filter=".filter-photography">Photography</li>
+                <li data-filter=".filter-design">Design</li>
+                <li data-filter=".filter-automotive">Automotive</li>
+                <li data-filter=".filter-nature">Nature</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row gy-4 portfolio-container isotope-container">
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-photography">
+              <div class="portfolio-wrap">
+                <img src="assets/img/portfolio/portfolio-portrait-1.webp" class="img-fluid" alt="Portfolio Image" loading="lazy">
+                <div class="portfolio-info">
+                  <h4>Capturing Moments</h4>
+                  <p>Photography</p>
+                  <div class="portfolio-links">
+                    <a href="assets/img/portfolio/portfolio-portrait-1.webp" class="glightbox" title="Capturing Moments"><i class="bi bi-zoom-in"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link-45deg"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-design">
+              <div class="portfolio-wrap">
+                <img src="assets/img/portfolio/portfolio-2.webp" class="img-fluid" alt="Portfolio Image" loading="lazy">
+                <div class="portfolio-info">
+                  <h4>Woodcraft Design</h4>
+                  <p>Web Design</p>
+                  <div class="portfolio-links">
+                    <a href="assets/img/portfolio/portfolio-2.webp" class="glightbox" title="Woodcraft Design"><i class="bi bi-zoom-in"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link-45deg"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-automotive">
+              <div class="portfolio-wrap">
+                <img src="assets/img/portfolio/portfolio-portrait-2.webp" class="img-fluid" alt="Portfolio Image" loading="lazy">
+                <div class="portfolio-info">
+                  <h4>Classic Beauty</h4>
+                  <p>Automotive</p>
+                  <div class="portfolio-links">
+                    <a href="assets/img/portfolio/portfolio-portrait-2.webp" class="glightbox" title="Classic Beauty"><i class="bi bi-zoom-in"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link-45deg"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-nature">
+              <div class="portfolio-wrap">
+                <img src="assets/img/portfolio/portfolio-portrait-4.webp" class="img-fluid" alt="Portfolio Image" loading="lazy">
+                <div class="portfolio-info">
+                  <h4>Natural Growth</h4>
+                  <p>Nature</p>
+                  <div class="portfolio-links">
+                    <a href="assets/img/portfolio/portfolio-portrait-4.webp" class="glightbox" title="Natural Growth"><i class="bi bi-zoom-in"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link-45deg"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-photography">
+              <div class="portfolio-wrap">
+                <img src="assets/img/portfolio/portfolio-5.webp" class="img-fluid" alt="Portfolio Image" loading="lazy">
+                <div class="portfolio-info">
+                  <h4>Urban Stories</h4>
+                  <p>Photography</p>
+                  <div class="portfolio-links">
+                    <a href="assets/img/portfolio/portfolio-5.webp" class="glightbox" title="Urban Stories"><i class="bi bi-zoom-in"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link-45deg"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-design">
+              <div class="portfolio-wrap">
+                <img src="assets/img/portfolio/portfolio-6.webp" class="img-fluid" alt="Portfolio Image" loading="lazy">
+                <div class="portfolio-info">
+                  <h4>Digital Experience</h4>
+                  <p>Web Design</p>
+                  <div class="portfolio-links">
+                    <a href="assets/img/portfolio/portfolio-6.webp" class="glightbox" title="Digital Experience"><i class="bi bi-zoom-in"></i></a>
+                    <a href="portfolio-details.html" title="More Details"><i class="bi bi-link-45deg"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+          </div><!-- End Portfolio Container -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Portfolio Section -->
+
+    <!-- Team Section -->
+    <section id="team" class="team section">
+      <!-- Section Title -->
+      <div class="container section-title">
+        <h2>Team</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="team-slider swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 800,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": 1,
+              "spaceBetween": 30,
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "navigation": {
+                "nextEl": ".swiper-button-next",
+                "prevEl": ".swiper-button-prev"
+              },
+              "breakpoints": {
+                "576": {
+                  "slidesPerView": 2
+                },
+                "992": {
+                  "slidesPerView": 3
+                },
+                "1200": {
+                  "slidesPerView": 4
+                }
+              }
+            }
+          </script>
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="team-card">
+                <div class="team-image">
+                  <img src="assets/img/person/person-m-3.webp" class="img-fluid" alt="" loading="lazy">
+                  <div class="team-overlay">
+                    <div class="social-links">
+                      <a href="#"><i class="bi bi-twitter-x"></i></a>
+                      <a href="#"><i class="bi bi-facebook"></i></a>
+                      <a href="#"><i class="bi bi-instagram"></i></a>
+                      <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="team-content">
+                  <h3>Marcus Wilson</h3>
+                  <span>Chief Technology Officer</span>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.</p>
+                </div>
+              </div><!-- End Team Card -->
+            </div><!-- End slide item -->
+
+            <div class="swiper-slide">
+              <div class="team-card">
+                <div class="team-image">
+                  <img src="assets/img/person/person-f-5.webp" class="img-fluid" alt="" loading="lazy">
+                  <div class="team-overlay">
+                    <div class="social-links">
+                      <a href="#"><i class="bi bi-twitter-x"></i></a>
+                      <a href="#"><i class="bi bi-facebook"></i></a>
+                      <a href="#"><i class="bi bi-instagram"></i></a>
+                      <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="team-content">
+                  <h3>Sophia Reynolds</h3>
+                  <span>Product Designer</span>
+                  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                </div>
+              </div><!-- End Team Card -->
+            </div><!-- End slide item -->
+
+            <div class="swiper-slide">
+              <div class="team-card">
+                <div class="team-image">
+                  <img src="assets/img/person/person-m-8.webp" class="img-fluid" alt="" loading="lazy">
+                  <div class="team-overlay">
+                    <div class="social-links">
+                      <a href="#"><i class="bi bi-twitter-x"></i></a>
+                      <a href="#"><i class="bi bi-facebook"></i></a>
+                      <a href="#"><i class="bi bi-instagram"></i></a>
+                      <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="team-content">
+                  <h3>Daniel Chen</h3>
+                  <span>Marketing Specialist</span>
+                  <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+              </div><!-- End Team Card -->
+            </div><!-- End slide item -->
+
+            <div class="swiper-slide">
+              <div class="team-card">
+                <div class="team-image">
+                  <img src="assets/img/person/person-f-9.webp" class="img-fluid" alt="" loading="lazy">
+                  <div class="team-overlay">
+                    <div class="social-links">
+                      <a href="#"><i class="bi bi-twitter-x"></i></a>
+                      <a href="#"><i class="bi bi-facebook"></i></a>
+                      <a href="#"><i class="bi bi-instagram"></i></a>
+                      <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="team-content">
+                  <h3>Olivia Thompson</h3>
+                  <span>Lead Developer</span>
+                  <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                </div>
+              </div><!-- End Team Card -->
+            </div><!-- End slide item -->
+
+            <div class="swiper-slide">
+              <div class="team-card">
+                <div class="team-image">
+                  <img src="assets/img/person/person-m-12.webp" class="img-fluid" alt="" loading="lazy">
+                  <div class="team-overlay">
+                    <div class="social-links">
+                      <a href="#"><i class="bi bi-twitter-x"></i></a>
+                      <a href="#"><i class="bi bi-facebook"></i></a>
+                      <a href="#"><i class="bi bi-instagram"></i></a>
+                      <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="team-content">
+                  <h3>Jason Parker</h3>
+                  <span>UI/UX Designer</span>
+                  <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni.</p>
+                </div>
+              </div><!-- End Team Card -->
+            </div><!-- End slide item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+
+      </div>
+
+    </section><!-- /Team Section -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+      <!-- Section Title -->
+      <div class="container section-title">
+        <h2>Contact</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+        <div class="contact-main-wrapper">
+          <div class="map-wrapper">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+
+          <div class="contact-content">
+            <div class="contact-cards-container">
+              <div class="contact-card">
+                <div class="icon-box">
+                  <i class="bi bi-geo-alt"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Location</h4>
+                  <p>8721 Broadway Avenue, New York, NY 10023</p>
+                </div>
+              </div>
+
+              <div class="contact-card">
+                <div class="icon-box">
+                  <i class="bi bi-envelope"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Email</h4>
+                  <p>info@examplecompany.com</p>
+                </div>
+              </div>
+
+              <div class="contact-card">
+                <div class="icon-box">
+                  <i class="bi bi-telephone"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Call</h4>
+                  <p>+1 (212) 555-7890</p>
+                </div>
+              </div>
+
+              <div class="contact-card">
+                <div class="icon-box">
+                  <i class="bi bi-clock"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Open Hours</h4>
+                  <p>Monday-Friday: 9AM - 6PM</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-form-container">
+              <h3>Get in Touch</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua consectetur adipiscing.</p>
+
+              <form action="forms/contact.php" method="post" class="php-email-form">
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required="">
+                  </div>
+                  <div class="col-md-6 form-group mt-3 mt-md-0">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
+                  </div>
+                </div>
+                <div class="form-group mt-3">
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required="">
+                </div>
+                <div class="form-group mt-3">
+                  <textarea class="form-control" name="message" rows="5" placeholder="Message" required=""></textarea>
+                </div>
+
+                <div class="my-3">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                </div>
+
+                <div class="form-submit">
+                  <button type="submit">Send Message</button>
+                  <div class="social-links">
+                    <a href="#"><i class="bi bi-twitter"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- /Contact Section -->
+
+  </main>
+
+  <footer id="footer" class="footer position-relative dark-background">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-5 col-md-12 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span class="sitename">Passion</span>
+          </a>
+          <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Terms of service</a></li>
+            <li><a href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="#">Web Design</a></li>
+            <li><a href="#">Web Development</a></li>
+            <li><a href="#">Product Management</a></li>
+            <li><a href="#">Marketing</a></li>
+            <li><a href="#">Graphic Design</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+          <h4>Contact Us</h4>
+          <p>A108 Adam Street</p>
+          <p>New York, NY 535022</p>
+          <p>United States</p>
+          <p class="mt-4"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
+          <p><strong>Email:</strong> <span>info@example.com</span></p>
+        </div>
+
+      </div>
     </div>
 
-    <div class="heroe">
-
-        <h1>Welcome to CodeIgniter <?= CodeIgniter\CodeIgniter::CI_VERSION ?></h1>
-
-        <h2>The small framework with powerful features</h2>
-
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">MyWebsite</strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
     </div>
 
-</header>
+  </footer>
 
-<!-- CONTENT -->
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-<section>
+  <!-- Preloader -->
+  <div id="preloader">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
 
-    <h1>About this page</h1>
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
-    <p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
-
-    <p>If you would like to edit this page you will find it located at:</p>
-
-    <pre><code>app/Views/welcome_message.php</code></pre>
-
-    <p>The corresponding controller for this page can be found at:</p>
-
-    <pre><code>app/Controllers/Home.php</code></pre>
-
-</section>
-
-<div class="further">
-
-    <section>
-
-        <h1>Go further</h1>
-
-        <h2>
-            <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect x='32' y='96' width='64' height='368' rx='16' ry='16' class="svg-stroke" /><line x1='112' y1='224' x2='240' y2='224' class="svg-stroke" /><line x1='112' y1='400' x2='240' y2='400' class="svg-stroke" /><rect x='112' y='160' width='128' height='304' rx='16' ry='16' class="svg-stroke" /><rect x='256' y='48' width='96' height='416' rx='16' ry='16' class="svg-stroke" /><path d='M422.46,96.11l-40.4,4.25c-11.12,1.17-19.18,11.57-17.93,23.1l34.92,321.59c1.26,11.53,11.37,20,22.49,18.84l40.4-4.25c11.12-1.17,19.18-11.57,17.93-23.1L445,115C443.69,103.42,433.58,94.94,422.46,96.11Z' class="svg-stroke"/></svg>
-            Learn
-        </h2>
-
-        <p>The User Guide contains an introduction, tutorial, a number of "how to"
-            guides, and then reference documentation for the components that make up
-            the framework. Check the <a href="https://codeigniter.com/user_guide/"
-            target="_blank">User Guide</a> !</p>
-
-        <h2>
-            <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path d='M431,320.6c-1-3.6,1.2-8.6,3.3-12.2a33.68,33.68,0,0,1,2.1-3.1A162,162,0,0,0,464,215c.3-92.2-77.5-167-173.7-167C206.4,48,136.4,105.1,120,180.9a160.7,160.7,0,0,0-3.7,34.2c0,92.3,74.8,169.1,171,169.1,15.3,0,35.9-4.6,47.2-7.7s22.5-7.2,25.4-8.3a26.44,26.44,0,0,1,9.3-1.7,26,26,0,0,1,10.1,2L436,388.6a13.52,13.52,0,0,0,3.9,1,8,8,0,0,0,8-8,12.85,12.85,0,0,0-.5-2.7Z' class="svg-stroke" /><path d='M66.46,232a146.23,146.23,0,0,0,6.39,152.67c2.31,3.49,3.61,6.19,3.21,8s-11.93,61.87-11.93,61.87a8,8,0,0,0,2.71,7.68A8.17,8.17,0,0,0,72,464a7.26,7.26,0,0,0,2.91-.6l56.21-22a15.7,15.7,0,0,1,12,.2c18.94,7.38,39.88,12,60.83,12A159.21,159.21,0,0,0,284,432.11' class="svg-stroke" /></svg>
-            Discuss
-        </h2>
-
-        <p>CodeIgniter is a community-developed open source project, with several
-             venues for the community members to gather and exchange ideas. View all
-             the threads on <a href="https://forum.codeigniter.com/"
-             target="_blank">CodeIgniter's forum</a>, or <a href="https://join.slack.com/t/codeigniterchat/shared_invite/zt-rl30zw00-obL1Hr1q1ATvkzVkFp8S0Q"
-             target="_blank">chat on Slack</a> !</p>
-
-        <h2>
-        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><line x1='176' y1='48' x2='336' y2='48' class="svg-stroke" /><line x1='118' y1='304' x2='394' y2='304' class="svg-stroke" /><path d='M208,48v93.48a64.09,64.09,0,0,1-9.88,34.18L73.21,373.49C48.4,412.78,76.63,464,123.08,464H388.92c46.45,0,74.68-51.22,49.87-90.51L313.87,175.66A64.09,64.09,0,0,1,304,141.48V48' class="svg-stroke" /></svg>
-             Contribute
-        </h2>
-
-        <p>CodeIgniter is a community driven project and accepts contributions
-             of code and documentation from the community. Why not
-             <a href="https://codeigniter.com/contribute" target="_blank">
-             join us</a> ?</p>
-
-    </section>
-
-</div>
-
-<!-- FOOTER: DEBUG INFO + COPYRIGHTS -->
-
-<footer>
-    <div class="environment">
-
-        <p>Page rendered in {elapsed_time} seconds using {memory_usage} MB of memory.</p>
-
-        <p>Environment: <?= ENVIRONMENT ?></p>
-
-    </div>
-
-    <div class="copyrights">
-
-        <p>&copy; <?= date('Y') ?> CodeIgniter Foundation. CodeIgniter is open source project released under the MIT
-            open source licence.</p>
-
-    </div>
-
-</footer>
-
-<!-- SCRIPTS -->
-
-<script {csp-script-nonce}>
-    document.getElementById("menuToggle").addEventListener('click', toggleMenu);
-    function toggleMenu() {
-        var menuItems = document.getElementsByClassName('menu-item');
-        for (var i = 0; i < menuItems.length; i++) {
-            var menuItem = menuItems[i];
-            menuItem.classList.toggle("hidden");
-        }
-    }
-</script>
-
-<!-- -->
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
 
 </body>
+
 </html>
