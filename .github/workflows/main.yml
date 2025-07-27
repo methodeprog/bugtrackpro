@@ -1,0 +1,26 @@
+## YAML Template.
+---
+name: FTP Deploy MecanoProject
+
+on:
+  push:
+    branches:
+      - main  # ou la branche que tu veux surveiller
+  workflow_dispatch:
+
+jobs:
+  ftp-deploy:
+    name: 📦 Déploiement FTP
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 📥 Cloner le dépôt
+      uses: actions/checkout@v3
+
+    - name: 📤 Déployer via FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        server-dir: /  # adapte ce chemin selon ton hébergeur
