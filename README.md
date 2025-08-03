@@ -85,3 +85,5 @@ See the LICENSE file for more information.
 Contact
 Have questions or want to collaborate?
 me@methodeamani.com
+
+Caution: My first time online project, please lets go easy ;)
