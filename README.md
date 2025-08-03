@@ -56,7 +56,7 @@ The platform is built on **CodeIgniter 4** with fully separated modules for easy
 ### Setup Steps
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/bugtrackpro.git
+[git clone https://github.com/YOUR_USERNAME/bugtrackpro.git](https://github.com/methodeprog/bugtrackpro.git)
 cd bugtrackpro
 composer install
 cp .env.example .env
