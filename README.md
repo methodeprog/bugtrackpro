@@ -56,7 +56,7 @@ The platform is built on **CodeIgniter 4** with fully separated modules for easy
 ### Setup Steps
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/bugtrackpro.git
+[git clone https://github.com/YOUR_USERNAME/bugtrackpro.git](https://github.com/methodeprog/bugtrackpro.git)
 cd bugtrackpro
 composer install
 cp .env.example .env
@@ -85,3 +85,5 @@ See the LICENSE file for more information.
 Contact
 Have questions or want to collaborate?
 me@methodeamani.com
+
+Caution: My first time online project, please lets go easy ;)
