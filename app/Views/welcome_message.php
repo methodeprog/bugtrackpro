@@ -428,7 +428,12 @@
 
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        
         </nav>
+        <a href="auth/login" style="background-color: #059652; color: white; padding: 10px 25px; border-radius: 30px; text-decoration: none; font-weight: 500; white-space: nowrap;">
+    Connexion
+  </a>
+        
 
       </div>
 

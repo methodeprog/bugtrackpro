@@ -1,68 +1,87 @@
-# CodeIgniter 4 Application Starter
+# 🐛 BugTrackPro — Modular PHP Bug Tracking & Analysis Platform
 
-## What is CodeIgniter?
+**BugTrackPro** is a modular and extensible application built with **CodeIgniter 4** for managing, analyzing, documenting, and resolving bugs in PHP projects. It’s designed for developers, QA testers, and technical teams looking for a streamlined debugging and issue resolution workflow.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+# 🐛 BugTrackPro — Modular PHP Bug Tracking & Analysis Platform
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+> ⚠️ **Project Status: Work in Progress**  
+> This project is in an early development stage and is not yet production-ready.  
+> Feel free to explore, suggest improvements, or contribute — every bit helps!
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+---
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+## 📘 Overview
 
-## Installation & updates
+**BugTrackPro** is a modular bug tracking and analysis platform built with **CodeIgniter 4**, aiming to help developers and teams report, analyze, and resolve bugs in PHP-based applications.
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+This is my **first public open-source project**, shared to:
+- Learn from community feedback 💬
+- Improve my skills in clean architecture and documentation 🛠️
+- Offer a starting point for anyone building bug tracking systems in PHP 🚀
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+---
 
-## Setup
+## 🔧 Core Features (Planned or Partially Implemented)
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+- User and team authentication
+- Bug reporting by module and client
+- Comment system per bug
+- Bug resolution workflow
+- Timeline and monitoring dashboards
+- Notifications (Email, Webhooks)
+- Project and deadline management
 
-## Important Change with index.php
+---
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+## 🧱 Modular Architecture
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+Organized in self-contained CodeIgniter 4 modules (not yet all finalized):
 
-**Please** read the user guide for a better explanation of how CI4 works!
+## 🧱 Modular Architecture
 
-## Repository Management
+The platform is built on **CodeIgniter 4** with fully separated modules for easy maintenance and scaling.
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+📦 Main Modules:
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+## ⚙️ Installation
 
-## Server Requirements
+### Requirements
 
-PHP version 8.1 or higher is required, with the following extensions installed:
+- PHP 8.1+
+- MySQL / MariaDB
+- Composer
+- Apache/Nginx
+- CodeIgniter 4 (already included)
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+### Setup Steps
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
+```bash
+git clone https://github.com/YOUR_USERNAME/bugtrackpro.git
+cd bugtrackpro
+composer install
+cp .env.example .env
+php spark key:generate
+php spark migrate
+php spark serve
 
-Additionally, make sure that the following extensions are enabled in your PHP:
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+app.baseURL = 'http://localhost:8080/'
+database.default.hostname = localhost
+database.default.database = bugtrack_db
+database.default.username = root
+database.default.password = secret
+
+
+🤝 Contribution
+We welcome contributions!
+Please fork the repository, create a feature branch and submit a pull request.
+
+Or open an issue if you encounter a bug or want to suggest improvements.
+
+📄 License
+This project is open-source and available under the MIT License.
+See the LICENSE file for more information.
+
+Contact
+Have questions or want to collaborate?
+me@methodeamani.com

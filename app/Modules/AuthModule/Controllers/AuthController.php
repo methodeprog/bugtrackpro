@@ -4,112 +4,153 @@ namespace App\Modules\AuthModule\Controllers;
 
 use App\Controllers\BaseController;
 use App\Modules\AuthModule\Models\UserModel;
-use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
+use CodeIgniter\Email\Email;
 
 class AuthController extends BaseController
 {
     protected $userModel;
-    protected $key;
+    protected $session;
 
     public function __construct()
     {
         $this->userModel = new UserModel();
-        $this->key = getenv('JWT_SECRET') ?: 'super_secret_key';
+        $this->session = session();
     }
 
-    // Formulaire de connexion (GET)
+    // Affiche le formulaire de connexion
     public function loginForm()
     {
-        return view('App\Modules\AuthModule\Views\login');
+        return view('AuthModule\login');
     }
 
-   // AuthController.php
 
-use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
-use App\Modules\AuthModule\Models\UserModel;
-
+// Traite la connexion
 public function login()
 {
-    helper(['cookie', 'url']);
-
     $email = $this->request->getPost('email');
     $password = $this->request->getPost('password');
 
-    $userModel = new UserModel();
-    $user = $userModel->where('email', $email)->first();
+    $user = $this->userModel->where('email', $email)->first();
 
     if (!$user || !password_verify($password, $user['password'])) {
-        return redirect()->back()->withInput()->with('error', 'Identifiants incorrects');
+        return redirect()->back()
+            ->withInput()
+            ->with('error', 'Email ou mot de passe incorrect.');
     }
 
-    // Génération du JWT
-    $issuedAt   = time();
-    $expiration = $issuedAt + 3600; // 1 heure
-    $payload = [
-        'iat'  => $issuedAt,
-        'exp'  => $expiration,
-        'data' => [
-            'id'    => $user['id'],
-            'email' => $user['email'],
-            'name'  => $user['name'],
-        ]
-    ];
+    // Exemple de vérification de confirmation de l'email (à activer si tu implémentes cette colonne)
+    // if (!$user['is_verified']) {
+    //     return redirect()->back()->withInput()->with('error', 'Veuillez vérifier votre adresse email.');
+    // }
 
-    $jwt = JWT::encode($payload, getenv('JWT_SECRET'), 'HS256');
-
-    // Stockage dans un cookie sécurisé
-    set_cookie([
-        'name'     => 'token',
-        'value'    => $jwt,
-        'expire'   => 3600, // 1 heure
-        'httponly' => true, // Inaccessible via JS
-        'secure'   => true, // ⚠️ En HTTPS seulement // secure => true nécessite un site en HTTPS
-        'samesite' => 'Strict', // empêche les requêtes externes de réutiliser le cookie
-        'path'     => '/',
+    // Enregistre les infos de l'utilisateur dans la session
+    $this->session->set([
+        'user_id'    => $user['id'],
+        'user_username'  => $user['username'],
+        'user_email' => $user['email'],
+        'isLoggedIn' => true,
     ]);
 
-    // Redirection vers le tableau de bord
     return redirect()->to('/dashboard');
 }
 
 
-    // Formulaire d'inscription (GET)
+    // Affiche le formulaire d'inscription
     public function registrationForm()
     {
         return view('App\Modules\AuthModule\Views\register');
     }
 
-    // Traitement de l'inscription (POST)
     public function registration()
-    {
-        $data = $this->request->getPost();
+{
+    $data = $this->request->getPost();
 
-        $rules = [
-            'name' => 'required|min_length[3]',
-            'email' => 'required|valid_email|is_unique[users.email]',
-            'password' => 'required|min_length[6]',
-        ];
+    $rules = [
+        'username'     => 'required|min_length[3]',
+        'email'    => 'required|valid_email|is_unique[users.email]',
+        'password' => 'required|min_length[6]',
+    ];
 
-        if (!$this->validate($rules)) {
-            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
-        }
-
-        $this->userModel->save([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => password_hash($data['password'], PASSWORD_DEFAULT),
-        ]);
-
-        return redirect()->to('/login')->with('success', 'Inscription réussie. Connectez-vous.');
+    if (!$this->validate($rules)) {
+        return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
     }
 
-    public function logout()
-{
-    helper('cookie');
-    delete_cookie('token');
-    return redirect()->to('/auth/login')->with('success', 'Déconnecté avec succès.');
+    // Générer le token
+    $token = bin2hex(random_bytes(16));
+
+    // Sauvegarder l'utilisateur avec le token
+    $this->userModel->save([
+        'username'             => $data['username'],
+        'email'            => $data['email'],
+        'password'         => password_hash($data['password'], PASSWORD_DEFAULT),
+        'activation_token' => $token,
+        'is_active'        => 0,
+    ]);
+
+    // Envoyer un email de confirmation
+    $email = \Config\Services::email();
+    $email->setTo($data['email']);
+    $email->setFrom('noreply@tonsite.com', 'Validation de Compte');
+
+    $activationLink = base_url("auth/activate/$token");
+
+    $email->setSubject('Confirmez votre inscription');
+    $email->setMessage("Bonjour, cliquez sur ce lien pour activer votre compte : <a href=\"$activationLink\">Activer mon compte</a>");
+
+    if ($email->send()) {
+        return redirect()->to('/auth/success')->with('success', 'Inscription réussie. Vérifiez votre email pour activer votre compte.');
+    } else {
+        return redirect()->back()->with('error', 'Échec de l’envoi de l’email. Essayez plus tard.');
+    }
 }
 
+public function activate($token)
+{
+    $user = $this->userModel->where('activation_token', $token)->first();
+
+    if (!$user) {
+        return redirect()->to('/auth/login')->with('error', 'Lien invalide ou expiré.');
+    }
+
+    // Activation du compte
+    $this->userModel->update($user['id'], [
+        'is_active' => 1,
+        'activation_token' => null
+    ]);
+
+    return redirect()->to('/auth/login')->with('success', 'Votre compte est maintenant actif. Vous pouvez vous connecter.');
+}
+
+public function verify($token = null)
+{
+    if (!$token) {
+        return redirect()->to('/auth/login')->with('error', 'Lien invalide.');
+    }
+
+    $user = $this->userModel->where('verification_token', $token)->first();
+
+    if (!$user) {
+        return redirect()->to('/auth/login')->with('error', 'Lien invalide ou expiré.');
+    }
+
+    $this->userModel->update($user['id'], [
+        'is_verified' => true,
+        'verification_token' => null,
+    ]);
+
+    return redirect()->to('/auth/login')->with('success', 'Adresse vérifiée. Vous pouvez maintenant vous connecter.');
+}
+
+
+    // Déconnexion
+    public function logout()
+    {
+        $this->session->destroy();
+        return redirect()->to('/auth/login')->with('success', 'Vous êtes déconnecté.');
+    }
+
+    public function success()
+    {
+        return view('App\Modules\AuthModule\Views\success');
+    }
 }

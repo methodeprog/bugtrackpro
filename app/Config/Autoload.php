@@ -38,11 +38,29 @@ class Autoload extends AutoloadConfig
      * @var array<string, list<string>|string>
      */
     public $psr4 = [
-        APP_NAMESPACE => APPPATH,
-        'App\\Modules\\AuthModule'     => APPPATH . 'Modules/AuthModule',
-        'App\\Modules\\GuardModule'    => APPPATH . 'Modules/GuardModule',
-        'App\\Modules\\DoctorModule'   => APPPATH . 'Modules/DoctorModule',
-        'App\\Modules\\AdviserModule'  => APPPATH . 'Modules/AdviserModule',
+       // APP_NAMESPACE => APPPATH,
+        'App' => APPPATH,
+        'OrganizationModule'=> APPPATH . 'Modules/OrganizationModule',
+        'AuthModule'=> APPPATH . 'Modules/AuthModule',
+        'GuardModule'=> APPPATH . 'Modules/GuardModule',
+        'AnalyzerModule'=> APPPATH . 'Modules/AnalyzerModule',
+        'AdviserModule'=> APPPATH . 'Modules/AdviserModule',
+        'ApiModule'=> APPPATH . 'Modules/ApiModule',
+        'AttachmentModule'=> APPPATH . 'Modules/AttachmentModule',
+        'AuditTrailModule'=> APPPATH . 'Modules/AuditTrailModule',
+        'BugReportModule'=> APPPATH . 'Modules/BugReportModule',
+        'ClientModule'=> APPPATH . 'Modules/ClientModule',
+        'CommentModule'=> APPPATH . 'Modules/CommentModule',
+        'DashboardModule'=> APPPATH . 'Modules/DashboardModule',
+        'DeadlineModule'=> APPPATH . 'Modules/DeadlineModule',
+        'DocumentationModule'=> APPPATH . 'Modules/DocumentationModule',
+        'MonitoringModule'=> APPPATH . 'Modules/MonitoringModule',
+        'NotificationModule'=> APPPATH . 'Modules/NotificationModule',
+        'ProjectModule'=> APPPATH . 'Modules/ProjectModule',
+        'ResolutionModule'=> APPPATH . 'Modules/ResolutionModule',
+        'TechTeamModule'=> APPPATH . 'Modules/TechTeamModule',
+        'TimelineModule'=> APPPATH . 'Modules/TimelineModule',
+        'WebhookModule'=> APPPATH . 'Modules/WebhookModule',
     ];
 
     /**
